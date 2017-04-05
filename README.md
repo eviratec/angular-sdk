@@ -1,4 +1,4 @@
-# Eviratec Angular SDK [![Build Status](https://travis-ci.org/luminous-patterns/angular-environment-config.svg?branch=master)](https://travis-ci.org/luminous-patterns/angular-environment-config)
+# Eviratec Angular SDK
 
 *Eviratec Software Development Kit for AngularJS*
 
