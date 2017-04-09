@@ -14,10 +14,11 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */'use strict';
 
+const DEVOPS_SRC_DIR = './src/js/devops/';
 const _require = require.main.require;
 
 module.exports = 
-  class EwaContinuousGrunt {
+  class EviratecNgGrunt {
 
     /**
      * Loads Grunt task configurations
@@ -28,7 +29,7 @@ module.exports =
       
       let tasksConfig;
       
-      _require('./src/js/grunt/configs')(tasksConfig = {}, grunt);
+      _require(DEVOPS_SRC_DIR + 'configs')(tasksConfig = {}, grunt);
       
       return tasksConfig;
 
@@ -41,7 +42,7 @@ module.exports =
      */
     constructor (grunt) {
       
-      this.tasksConfig = EwaContinuousGrunt.loadTaskConfigs(grunt);
+      this.tasksConfig = EviratecNgGrunt.loadTaskConfigs(grunt);
 
       init(this, grunt);
 
@@ -51,7 +52,7 @@ module.exports =
      * Loads Grunt tasks
      *
      * @param      {Object}  grunt   The Grunt instance
-     * @return     {EwaContinuousGrunt}  ewaContinuousGrunt
+     * @return     {EviratecNgGrunt}  eviratecNgGrunt
      */
     loadGruntTasks (grunt) {
       require('load-grunt-tasks')(grunt);
@@ -62,7 +63,7 @@ module.exports =
      * Configures Grunt
      *
      * @param      {Object}  grunt   The Grunt instance to configure
-     * @return     {EwaContinuousGrunt}  ewaContinuousGrunt
+     * @return     {EviratecNgGrunt}  eviratecNgGrunt
      */
     configureGrunt (grunt) {
 
@@ -99,17 +100,17 @@ module.exports =
      * Bind Grunt tasks
      *
      * @param      {Object}  grunt   The Grunt instance to bind the tasks to
-     * @return     {EwaContinuousGrunt}  ewaContinuousGrunt
+     * @return     {EviratecNgGrunt}  eviratecNgGrunt
      */
     bindGruntTasks (grunt) {
-      _require('./src/js/grunt/tasks')(grunt);
+      _require(DEVOPS_SRC_DIR + 'tasks')(grunt);
       return this;
     }
 
   };
 
-function init (ewaContinuousGrunt, grunt) {
-  ewaContinuousGrunt
+function init (eviratecNgGrunt, grunt) {
+  eviratecNgGrunt
     .loadGruntTasks(grunt)
     .configureGrunt(grunt)
     .bindGruntTasks(grunt);

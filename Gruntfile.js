@@ -14,8 +14,8 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */'use strict';
 
-const EwaContinuousGrunt = require('./src/js/grunt/EwaContinuousGrunt');
+const EviratecNgGrunt = require('./src/js/devops/EviratecNgGrunt');
 
 module.exports = function (grunt) {
-  new EwaContinuousGrunt(grunt);
+  new EviratecNgGrunt(grunt);
 };
