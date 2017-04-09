@@ -2,6 +2,13 @@
 
 *Eviratec Software Development Kit for AngularJS*
 
+## Test
+
+1. `$ mkdir eviratec-angular-sdk && cd "$_"`
+2. `$ git checkout git@github.com:/eviratec/angular-sdk.git .`
+3. `$ npm install`
+4. `$ npm test`
+
 ## License
 
 Copyright (c) 2017 Callan Peter Milne
