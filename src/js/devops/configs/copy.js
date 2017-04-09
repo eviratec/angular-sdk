@@ -44,16 +44,8 @@ function initCopyConfig ($config) {
         ],
         dest: '<%= outDir %>/',
       }, {
-        src: '<%= tmpBuildDir %>/ewa.min.js',
-        dest: '<%= outDir %>/ewa.min.js',
-      }, {
-        src: '<%= tmpBuildDir %>/ewa.min.css',
-        dest: '<%= outDir %>/ewa.min.css',
-      }, {
-        expand: true,
-        cwd: '<%= staticDir %>',
-        src: '**/*',
-        dest: '<%= outDir %>/',
+        src: '<%= tmpBuildDir %>/build.js',
+        dest: '<%= outDir %>/<%= pkg.name %>.js',
       }]
     },
 
@@ -97,13 +89,6 @@ function initCopyConfig ($config) {
         '**/*.es',
       ],
       dest: '<%= tmpBuildDir %>/srcFiles/es',
-    },
-
-    otherCss: {
-      files: [{
-        src: './bower_components/angular-material/angular-material.css',
-        dest: '<%= tmpBuildDir %>/vendor.css'
-      }],
     },
     
   };

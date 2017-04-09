@@ -86,7 +86,7 @@ module.exports =
 
         tmpBuildDir: '<%= tmpDir %>/build',
 
-        outDir: '<%= buildDir %>',
+        outDir: '',
 
       });
 

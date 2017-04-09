@@ -64,7 +64,7 @@ function initConcatConfig ($config) {
   $config['concat']['ngEsSrc'] = {
     files: {
       '<%= tmpBuildDir %>/srcFiles.es': [
-        '<%= tmpBuildDir %>/srcFiles/ng/0/**/*.es',
+        '<%= tmpBuildDir %>/srcFiles/ng/**/*.es',
       ],
     },
   };
@@ -75,7 +75,6 @@ function initConcatConfig ($config) {
       '<%= tmpBuildDir %>/ng.es': [
         '<%= tmpBuildDir %>/srcFiles/ng/module.es',
         '<%= tmpBuildDir %>/srcFiles.es',
-        '<%= tmpBuildDir %>/templates.es',
       ],
     },
     options: {

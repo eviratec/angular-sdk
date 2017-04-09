@@ -23,9 +23,14 @@ function registerBuildTask (grunt) {
     'Perform a clean build',
     [
       'clean:tmp',
-      'build-js',
-      'clean:build',
-      'copy:buildFiles',
+      'copy:esSrcToBuildTmp',
+      'concat:ngEsSrc',
+      'concat:ngEs',
+      'babel',
+      'concat:eviratecJs',
+      // 'uglify:eviratecJs',
+      // 'clean:build',
+      // 'copy:buildFiles',
     ]
   );
 

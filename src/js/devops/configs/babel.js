@@ -22,16 +22,16 @@ function initBabelConfig ($config) {
     options: {
       sourceMap: true,
       presets: [
-        'esnext',
-        'polyfill',
+        'env',
       ],
     },
     build: {
       files: [{
         expand: true,
-        cwd: '<%= tmpBuildDir %>',
+        cwd: '<%= srcDir %>/ng/',
         src: [
-          'ng.es',
+          '*.es',
+          '*/**/*.es',
         ],
         dest: '<%= tmpBuildDir %>/',
         ext: '.js',

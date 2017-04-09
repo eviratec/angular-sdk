@@ -18,19 +18,4 @@ module.exports = registerBuildTask;
 
 function registerBuildTask (grunt) {
 
-  grunt.registerTask(
-    'build-js',
-    'Build app js file',
-    [
-      // 'clean:tmp',
-      'copy:srcToBuildTmp',
-      'copy:esSrcToBuildTmp',
-      'concat:ngEsSrc',
-      'concat:ngEs',
-      'babel',
-      'concat:eviratecJs',
-      'uglify:eviratecJs',
-    ]
-  );
-
 }

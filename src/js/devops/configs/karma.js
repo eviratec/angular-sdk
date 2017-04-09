@@ -48,8 +48,8 @@ function initKarmaConfig ($config, grunt) {
     },
     babelPreprocessor: {
       options: {
-        presets: ['esnext','polyfill'], // use the es2015 preset
-        sourceMap: 'inline' // inline source maps inside compiled files
+        presets: ['env'],
+        sourceMap: 'inline',
       },
     },
     unit: {
