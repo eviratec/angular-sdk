@@ -22,12 +22,6 @@ function initCleanConfig ($config) {
     tmp: [
       '<%= tmpDir %>',
     ],
-    build: [
-      '<%= buildDir %>',
-    ],
-    dist: [
-      '<%= distDir %>',
-    ],
     server: '.server.tmp',
   };
 

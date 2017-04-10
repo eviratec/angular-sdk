@@ -49,42 +49,9 @@ function initCopyConfig ($config) {
       }]
     },
 
-    srcToBuildTmp: {
-      expand: true,
-      cwd: '<%= srcDir %>/ng',
-      src: [
-        '**/*.es',
-      ],
-      dest: '<%= tmpBuildDir %>/srcFiles/ng/0',
-      rename: (dest, src) => {
-
-        let x;
-        let filename;
-        let dirname;
-
-        if ('module.es6' === src) {
-          return [dest, '..', 'module.es'].join('/');
-        }
-
-        x = src.split(/\//g);
-
-        filename = x.pop();
-        dirname = x.pop();
-
-        if (!(dirname in concatPriorities)) {
-          return undefined;
-        }
-
-        filename = concatPriorities[dirname].filename(filename);
-
-        return [dest, filename].join('/');
-
-      },
-    },
-
     esSrcToBuildTmp: {
       expand: true,
-      cwd: '<%= srcDir %>/es',
+      cwd: '<%= srcDir %>/ng',
       src: [
         '**/*.es',
       ],

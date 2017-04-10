@@ -27,14 +27,10 @@ function initBabelConfig ($config) {
     },
     build: {
       files: [{
-        expand: true,
-        cwd: '<%= srcDir %>/ng/',
         src: [
-          '*.es',
-          '*/**/*.es',
+          '<%= tmpBuildDir %>/ng.es',
         ],
-        dest: '<%= tmpBuildDir %>/',
-        ext: '.js',
+        dest: '<%= tmpBuildDir %>/ng.js',
       }],
     },
   };
