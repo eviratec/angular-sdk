@@ -1,9 +1,24 @@
 # Eviratec Angular SDK
-[![Build Status](https://travis-ci.org/eviratec/angular-sdk.svg?branch=master)](https://travis-ci.org/eviratec/angular-sdk)
 
 *Eviratec Software Development Kit for AngularJS*
 
-## Test
+eviratec-angular-sdk@v1.0.0-alpha.1
+Built on 2017-04-10T23:49:33Z
+
+[![Build Status](https://travis-ci.org/eviratec/angular-sdk.svg?branch=master)](https://travis-ci.org/eviratec/angular-sdk)
+
+## Install
+
+1. Install npm module: `$ npm i --save eviratec/angular-sdk`
+2. Include/require the release source `node_modules/eviratec-angular-sdk/eviratec-angular-sdk.js` (full) | `node_modules/eviratec-angular-sdk/eviratec-angular-sdk.min.js` (minified)
+3. Add to your AngularJS module's depencency array: 
+  ```javascript
+  angular.module('myNgApp', [
+    'evNgSdk',
+  ]);
+  ```
+
+## Run tests
 
 1. `$ mkdir eviratec-angular-sdk && cd "$_"`
 2. `$ git checkout git@github.com:/eviratec/angular-sdk.git .`

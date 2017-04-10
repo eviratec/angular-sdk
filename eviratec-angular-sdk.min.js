@@ -1,6 +1,6 @@
 /**
  * eviratec-angular-sdk@v1.0.0-alpha.1
- * Built on 2017-04-10T23:10:01Z
+ * Built on 2017-04-10T23:49:33Z
  *
  * Copyright (c) 2017 Callan Peter Milne
  * 

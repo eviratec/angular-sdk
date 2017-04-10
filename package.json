@@ -2,7 +2,7 @@
   "private": true,
   "name": "eviratec-angular-sdk",
   "version": "1.0.0-alpha.1",
-  "description": "Eviratec Angular Software Development Kit",
+  "description": "Eviratec Software Development Kit for AngularJS",
   "scripts": {
     "test": "node_modules/grunt/node_modules/.bin/grunt unit"
   },
