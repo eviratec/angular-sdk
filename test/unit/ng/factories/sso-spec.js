@@ -1,10 +1,9 @@
 'use strict';
 
-describe('$sso', function () {
+describe('Single Sign-On', function () {
 
-  var $sso;
   var $cookies;
-
+  
   describe('$ssoProvider', function () {
 
     var $ssoProvider;
@@ -35,21 +34,18 @@ describe('$sso', function () {
 
     });
 
-  });
+    describe('$ssoProvider.ssoHost(newValue)', function () {
 
-  describe('$sso', function () {
+      var otherHost;
 
-    beforeEach(function () {
+      beforeEach(function () {
+        otherHost = 'https://login.eviratec.com.au';
+        $ssoProvider.ssoHost(otherHost);
+      });
 
-      module('eviratecNgSdk');
-
-      inject(['$sso', function (_$sso_) {
-        $sso = _$sso_;
-      }]);
-
-      inject(['$cookies', function (_$cookies_) {
-        $cookies = _$cookies_;
-      }]);
+      it('should set the SSO host', function () {
+        expect($ssoProvider.ssoHost()).toBe(otherHost);
+      });
 
     });
 

@@ -14,12 +14,12 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('Sso', SsoFactory);
+app.factory('SingleSignOn', SingleSignOnFactory);
 
-SsoFactory.$inject = ['$http', '$session'];
-function SsoFactory (  $http,   $session) {
+SingleSignOnFactory.$inject = ['$http', '$session'];
+function SingleSignOnFactory (  $http,   $session) {
 
-  const SSO_DIALOG_ID = 'eviratecSsoDialog';
+  const SSO_DIALOG_ID = 'eviratecDialog';
   const DIALOG_OPTS = [
     'width=800',
     'height=500',
@@ -28,7 +28,7 @@ function SsoFactory (  $http,   $session) {
     'status=yes',
   ];
 
-  class Sso {
+  class SingleSignOn {
 
     constructor (host) {
 
@@ -64,7 +64,7 @@ function SsoFactory (  $http,   $session) {
     }
 
     init () {
-      fetchSsoId(this.remoteHost, this.session.id)
+      fetchId(this.remoteHost, this.session.id)
         .then((d) => {
           Object.assign(this.d, d);
         });
@@ -72,7 +72,7 @@ function SsoFactory (  $http,   $session) {
 
     refresh () {
       return new Promise((resolve, reject) => {
-        fetchSsoId(this.remoteHost, this.session.id)
+        fetchId(this.remoteHost, this.session.id)
           .then((d) => {
             Object.assign(this.d, d);
             resolve();
@@ -110,9 +110,9 @@ function SsoFactory (  $http,   $session) {
 
   }
 
-  return new Sso;
+  return SingleSignOn;
 
-  function fetchSsoId (ssoHost, session_id) {
+  function fetchId (ssoHost, session_id) {
     return new Promise((resolve, reject) => {
       $http.get(`${ssoHost}/sso/id?a=${session_id}`).then((res) => {
         resolve(res.data);

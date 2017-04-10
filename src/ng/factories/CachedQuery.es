@@ -14,37 +14,19 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.provider('$sso', $ssoProvider);
+app.factory('CachedQuery', CachedQueryFactory);
 
-$ssoProvider.$inject = ['D_SSO_HOST'];
-function $ssoProvider (  D_SSO_HOST) {
+CachedQueryFactory.$inject = ['RemoteResource'];
+function CachedQueryFactory (  RemoteResource) {
 
-  let config = {
-    ssoHost: D_SSO_HOST,
-  };
+  class CachedQuery extends RemoteResource {
 
-  function getSsoHost () {
-    return config.ssoHost;
-  }
-
-  function setSsoHost (newValue) {
-    return config.ssoHost = newValue;
-  }
-
-  this.ssoHost = function (newValue) {
-    
-    if (undefined === newValue) {
-      return getSsoHost();
+    constructor (uri) {
+      super(uri);
     }
 
-    setSsoHost(newValue);
+  }
 
-    return this;
-
-  };
-
-  this.$get = ['Sso', function (Sso) {
-    return new Sso(getSsoHost());
-  }];
+  return CachedQuery;
 
 }
