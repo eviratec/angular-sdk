@@ -14,16 +14,12 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-app.factory('Uuid', uuidFactory);
+app.factory('Uuid', UuidFactory);
 
-uuidFactory.$inject = ['uuid'];
-function uuidFactory (  uuid) {
+UuidFactory.$inject = ['uuid'];
+function UuidFactory (  uuid) {
 
   class Uuid {
-
-    get SESSION_COOKIE () {
-      return SESSION_COOKIE;
-    }
 
     static v4String () {
       return uuid.v4();

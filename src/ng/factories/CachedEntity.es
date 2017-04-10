@@ -21,8 +21,8 @@ function CachedEntityFactory (  RemoteResource) {
 
   class CachedEntity extends RemoteResource {
 
-    constructor (uri) {
-      super(uri);
+    constructor (type, resourceId) {
+      super(`/${type}/${resourceId}`);
     }
 
   }

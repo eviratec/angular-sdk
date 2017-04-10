@@ -39,20 +39,4 @@ describe('A SingleSignOn', function () {
 
   });
 
-  describe('singleSignOn.isLoggedIn', function () {
-
-    it('should be false ', function () {
-      expect(function () {
-        new SingleSignOn('');
-      }).toThrow(jasmine.any(Error));
-    });
-
-    it('should NOT throw an error if host is provided as first argument', function () {
-      expect(function () {
-        new SingleSignOn('https://login.eviratec.co');
-      }).not.toThrow(jasmine.any(Error));
-    });
-
-  });
-
 });

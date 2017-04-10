@@ -14,5 +14,9 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-/* Default SSO Host */
-app.constant('D_SSO_HOST', 'https://login.eviratec.co');
+app.constant('EV_SDK_DEFAULTS', {
+  
+  /* Default SSO Host */
+  'SSO_HOST': 'https://login.eviratec.co',
+
+});

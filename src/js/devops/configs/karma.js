@@ -33,8 +33,9 @@ function initKarmaConfig ($config, grunt) {
         'node_modules/angular/angular.js',
         'node_modules/angular-mocks/angular-mocks.js',
         'node_modules/angular-cookies/angular-cookies.js',
-        'src/ng/module.es',
-        'src/ng/*/**/*.es',
+        'eviratec-angular-sdk.js',
+        // 'src/ng/module.es',
+        // 'src/ng/*/**/*.es',
         'test/unit/**/*-spec.js',
       ],
       frameworks: ['jasmine'],
@@ -44,16 +45,16 @@ function initKarmaConfig ($config, grunt) {
       colors: true,
       autoWatch: false,
       autoWatchatchInterval: 0,
-      browsers: karmaChrome,
+      browsers: karmaHeadless,
     },
     babelPreprocessor: {
       options: {
-        presets: ['env'],
+        presets: ['env', 'polyfill'],
         sourceMap: 'inline',
       },
     },
     unit: {
-      browsers: karmaChrome,
+      browsers: karmaHeadless,
     },
     debug: {
       browsers: karmaChrome,

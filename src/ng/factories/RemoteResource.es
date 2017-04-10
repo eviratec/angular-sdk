@@ -21,18 +21,24 @@ function RemoteResourceFactory (  EventEmitter,   $http) {
 
   class RemoteResource extends EventEmitter {
 
-    constructor (uri) {
+    constructor (uri, host) {
 
       super();
 
+      this.uri = uri || '/resource/0';
+      this.host = host || '';
+
       this.isDownloaded = false;
-      this.uri = uri || 'https://localhost/resource';
       this.data = {};
 
       this.once('downloaded', () => {
         this.isDownloaded = true;
       });
 
+    }
+
+    get url () {
+      return this.host + this.uri;
     }
 
     download (refresh = false) {
@@ -77,7 +83,7 @@ function RemoteResourceFactory (  EventEmitter,   $http) {
   function httpGet (remoteResource) {
     return $http({
       method: 'GET',
-      url: remoteResource.uri,
+      url: remoteResource.url,
       headers: {
         'Content-Type': 'application/json',
       },

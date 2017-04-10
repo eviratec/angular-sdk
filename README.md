@@ -1,4 +1,5 @@
 # Eviratec Angular SDK
+[![Build Status](https://travis-ci.org/eviratec/angular-sdk.svg?branch=master)](https://travis-ci.org/eviratec/angular-sdk)
 
 *Eviratec Software Development Kit for AngularJS*
 

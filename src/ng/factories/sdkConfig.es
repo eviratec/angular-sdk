@@ -12,39 +12,39 @@
  * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
  * OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
  * PERFORMANCE OF THIS SOFTWARE.
- */'use strict';
+ */
 
-module.exports = initConcatConfig;
+app.provider('$evSdkConfig', $evSdkConfigProvider);
 
-function initConcatConfig ($config) {
+$evSdkConfigProvider.$inject = ['EV_SDK_DEFAULTS'];
+function $evSdkConfigProvider (  EV_SDK_DEFAULTS) {
 
-  $config['concat'] = {};
-
-  $config['concat']['options'] = {
-    stripBanners: true,
+  let config = {
+    ssoHost: EV_SDK_DEFAULTS.SSO_HOST,
   };
 
-  /* concat:ngEsSrc */
-  $config['concat']['ngEsSrc'] = {
-    files: {
-      '<%= tmpBuildDir %>/ng.es': [
-        '<%= srcDir %>/ng/*.es',
-        '<%= srcDir %>/ng/*/**/*.es',
-      ],
-    },
+  function getValue (varName) {
+    return config[varName];
+  }
+
+  function setValue (varName, newValue) {
+    return config[varName] = newValue;
+  }
+
+  this.value = function (varName, newValue) {
+    
+    if (undefined === newValue) {
+      return getValue(varName);
+    }
+
+    setValue(varName, newValue);
+
+    return this;
+
   };
-  
-  /* concat:eviratecJs */
-  $config['concat']['eviratecJs'] = {
-    options: {
-      banner: '<%= pkgBanner %>(function(){"use strict";\n',
-      footer: '})();\n',
-    },
-    src: [
-      'node_modules/babel-polyfill/dist/polyfill.js',
-      '<%= tmpBuildDir %>/ng.js',
-    ],
-    dest: '<%= pkg.name %>.js',
+
+  this.$get = function () {
+    return Object.assign({}, config);
   };
 
 }

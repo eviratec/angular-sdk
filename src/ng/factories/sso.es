@@ -16,19 +16,15 @@
 
 app.provider('$sso', $ssoProvider);
 
-$ssoProvider.$inject = ['D_SSO_HOST'];
-function $ssoProvider (  D_SSO_HOST) {
-
-  let config = {
-    ssoHost: D_SSO_HOST,
-  };
+$ssoProvider.$inject = ['$evSdkConfigProvider'];
+function $ssoProvider (  $evSdkConfigProvider) {
 
   function getSsoHost () {
-    return config.ssoHost;
+    return $evSdkConfigProvider.value('ssoHost');
   }
 
   function setSsoHost (newValue) {
-    return config.ssoHost = newValue;
+    return $evSdkConfigProvider.value('ssoHost', newValue);
   }
 
   this.ssoHost = function (newValue) {
@@ -43,8 +39,8 @@ function $ssoProvider (  D_SSO_HOST) {
 
   };
 
-  this.$get = ['Sso', function (Sso) {
-    return new Sso(getSsoHost());
+  this.$get = ['SingleSignOn', function (SingleSignOn) {
+    return new SingleSignOn(getSsoHost());
   }];
 
 }
