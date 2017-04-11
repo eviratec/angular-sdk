@@ -1,6 +1,6 @@
 /**
  * eviratec-angular-sdk@v1.0.0-alpha.1
- * Built on 2017-04-10T23:49:33Z
+ * Built on 2017-04-11T02:01:16Z
  *
  * Copyright (c) 2017 Callan Peter Milne
  * 
@@ -6795,7 +6795,10 @@ var app = angular.module(moduleName, moduleDeps);
 app.constant('EV_SDK_DEFAULTS', {
 
   /* Default SSO Host */
-  'SSO_HOST': 'https://login.eviratec.co'
+  'SSO_HOST': 'https://login.eviratec.co',
+
+  /* Default query cache host */
+  'QUERY_CACHE_HOST': ''
 
 });
 
@@ -7198,8 +7201,8 @@ function EventEmitterFactory() {
 
 app.factory('RemoteResource', RemoteResourceFactory);
 
-RemoteResourceFactory.$inject = ['EventEmitter', '$http'];
-function RemoteResourceFactory(EventEmitter, $http) {
+RemoteResourceFactory.$inject = ['EventEmitter', '$http', '$evSdkConfig'];
+function RemoteResourceFactory(EventEmitter, $http, $evSdkConfig) {
   var RemoteResource = function (_EventEmitter) {
     _inherits(RemoteResource, _EventEmitter);
 
@@ -7209,7 +7212,7 @@ function RemoteResourceFactory(EventEmitter, $http) {
       var _this3 = _possibleConstructorReturn(this, (RemoteResource.__proto__ || Object.getPrototypeOf(RemoteResource)).call(this));
 
       _this3.uri = uri || '/resource/0';
-      _this3.host = host || '';
+      _this3.host = host || $evSdkConfig.queryCacheHost;
 
       _this3.isDownloaded = false;
       _this3.data = {};
@@ -7282,13 +7285,24 @@ function RemoteResourceFactory(EventEmitter, $http) {
   }
 }
 
+app.provider('$evSdk', $evSdkProvider);
+
+$evSdkProvider.$inject = [];
+function $evSdkProvider() {
+
+  this.$get = function () {
+    return {};
+  };
+}
+
 app.provider('$evSdkConfig', $evSdkConfigProvider);
 
 $evSdkConfigProvider.$inject = ['EV_SDK_DEFAULTS'];
 function $evSdkConfigProvider(EV_SDK_DEFAULTS) {
 
   var config = {
-    ssoHost: EV_SDK_DEFAULTS.SSO_HOST
+    ssoHost: EV_SDK_DEFAULTS.SSO_HOST,
+    queryCacheHost: EV_SDK_DEFAULTS.QUERY_CACHE_HOST
   };
 
   function getValue(varName) {
