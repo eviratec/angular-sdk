@@ -21,6 +21,7 @@ function $evSdkConfigProvider (  EV_SDK_DEFAULTS) {
 
   let config = {
     ssoHost: EV_SDK_DEFAULTS.SSO_HOST,
+    queryCacheHost: EV_SDK_DEFAULTS.QUERY_CACHE_HOST,
   };
 
   function getValue (varName) {

@@ -19,4 +19,7 @@ app.constant('EV_SDK_DEFAULTS', {
   /* Default SSO Host */
   'SSO_HOST': 'https://login.eviratec.co',
 
+  /* Default query cache host */
+  'QUERY_CACHE_HOST': '',
+
 });

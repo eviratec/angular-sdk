@@ -16,8 +16,8 @@
 
 app.factory('RemoteResource', RemoteResourceFactory);
 
-RemoteResourceFactory.$inject = ['EventEmitter', '$http'];
-function RemoteResourceFactory (  EventEmitter,   $http) {
+RemoteResourceFactory.$inject = ['EventEmitter', '$http', '$evSdkConfig'];
+function RemoteResourceFactory (  EventEmitter,   $http,   $evSdkConfig) {
 
   class RemoteResource extends EventEmitter {
 
@@ -26,7 +26,7 @@ function RemoteResourceFactory (  EventEmitter,   $http) {
       super();
 
       this.uri = uri || '/resource/0';
-      this.host = host || '';
+      this.host = host || $evSdkConfig.queryCacheHost;
 
       this.isDownloaded = false;
       this.data = {};

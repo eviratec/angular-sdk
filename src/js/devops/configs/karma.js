@@ -36,6 +36,7 @@ function initKarmaConfig ($config, grunt) {
         'eviratec-angular-sdk.js',
         // 'src/ng/module.es',
         // 'src/ng/*/**/*.es',
+        'test/e2e/**/*-spec.js',
         'test/unit/**/*-spec.js',
       ],
       frameworks: ['jasmine'],

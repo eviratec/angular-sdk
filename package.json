@@ -9,8 +9,8 @@
   "author": "Callan Peter Milne <callan.milne@eviratec.com.au>",
   "license": "ISC",
   "dependencies": {
-    "angular": "1.5.9",
-    "angular-cookies": "1.5.9"
+    "angular": "^1.5.9",
+    "angular-cookies": "^1.5.9"
   },
   "repository": {
     "url": "eviratec/angular-sdk",
