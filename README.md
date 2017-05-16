@@ -6,6 +6,8 @@ eviratec-angular-sdk@v1.0.0-alpha.1
 Built on 2017-04-10T23:49:33Z
 
 [![Build Status](https://travis-ci.org/eviratec/angular-sdk.svg?branch=master)](https://travis-ci.org/eviratec/angular-sdk)
+[![Dependency Status](https://david-dm.org/eviratec/angular-sdk/status.svg)](https://david-dm.org/eviratec/angular-sdk)
+[![devDependency Status](https://david-dm.org/eviratec/angular-sdk/dev-status.svg)](https://david-dm.org/eviratec/angular-sdk#info=devDependencies)
 
 ## Install
 
